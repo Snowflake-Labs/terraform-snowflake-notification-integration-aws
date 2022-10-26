@@ -1,0 +1,1 @@
+# terraform-snowflake-notification-integration-aws
