@@ -5,7 +5,7 @@ output "notification_integration_name" {
 
 output "integration_sns_topic_arn" {
   description = "Notification integration's SNS Topic ARN."
-  value       = module.my_notification_integration.integration_sns_topic_arn
+  value       = module.my_notification_integration.notification_integration_sns_topic_arn
 }
 
 output "notification_integration_sns_role_arn" {
