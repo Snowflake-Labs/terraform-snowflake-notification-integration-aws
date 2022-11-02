@@ -3,7 +3,7 @@ output "notification_integration_name" {
   value       = snowflake_notification_integration.error_integration.name
 }
 
-output "integration_sns_topic_arn" {
+output "notification_integration_sns_topic_arn" {
   description = "Notification integration's SNS Topic ARN."
   value       = aws_sns_topic.notification_integration_sns.arn
 }
