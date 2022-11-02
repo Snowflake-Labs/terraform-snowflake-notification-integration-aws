@@ -15,11 +15,11 @@ output "notification_integration_sns_role_arn" {
 
 output "notification_integration_external_id" {
   description = "The external ID or the notification integration."
-  value       = snowflake_notification_integration.error_integration.arn
+  value       = snowflake_notification_integration.error_integration.aws_sns_external_id
 }
 
 output "notification_integration_user_arn" {
   description = "The user ARN of the notification integration."
-  value       = snowflake_notification_integration.error_integration.arn
+  value       = snowflake_notification_integration.error_integration.aws_sns_iam_user_arn
 }
 
