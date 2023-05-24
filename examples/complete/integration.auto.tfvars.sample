@@ -1,0 +1,7 @@
+snowflake_account                             = "my-snowflake-account-id"
+prefix                                        = "my-prefix"
+aws_region                                    = "us-west-2"
+env                                           = "dev"
+snowflake_integration_user_roles              = []
+arn_format                                    = "aws"
+snowflake_notification_integration_owner_role = "INTEGRATION_RL"
