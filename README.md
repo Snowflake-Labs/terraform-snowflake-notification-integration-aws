@@ -6,4 +6,4 @@ This module creates notification integration as per the instructions in this [do
 2. SNS topic
 3. IAM Role
 
-Or Email Integration per the instructions [here]([url](https://docs.snowflake.com/en/user-guide/email-stored-procedures#creating-a-notification-integration))
+Or Email Integration per the instructions [here]([[url](https://docs.snowflake.com/en/user-guide/email-stored-procedures#creating-a-notification-integration)](here))
