@@ -43,9 +43,9 @@ variable "integration_type" {
   default     = "QUEUE"
 }
 
-variable "allowed_recepients" {
+variable "allowed_recipients" {
   type        = list(string)
-  description = "Allow list of recepient email addresses for a EMAIL type notification integration."
+  description = "Allow list of recipient email addresses for a EMAIL type notification integration."
   default     = []
 }
 
