@@ -2,16 +2,19 @@ resource "snowflake_notification_integration" "error_integration" {
   provider = snowflake.notification_integration_role
 
   name    = "${upper(replace(var.prefix, "-", "_"))}_NOTIFICATION_INTEGRATION"
-  comment = "A notification integration."
+  comment = var.notification_integration_comment
 
-  enabled   = true
-  type      = "QUEUE"
-  direction = "OUTBOUND"
+  enabled = var.integration_enabled
+  type    = var.integration_type
 
-  # AWS_SNS
-  notification_provider = "AWS_SNS"
-  aws_sns_topic_arn     = aws_sns_topic.notification_integration_sns.arn
-  aws_sns_role_arn      = "arn:${var.arn_format}:iam::${local.account_id}:role/${local.notification_integration_sns_role_name}"
+  # EMAIL
+  allowed_recepients = var.integration_type == "EMAIL" ? var.allowed_recepients : null
+
+  # QUEUE
+  direction             = var.integration_type == "QUEUE" ? "OUTBOUND" : null
+  notification_provider = var.integration_type == "QUEUE" ? "AWS_SNS" : null
+  aws_sns_topic_arn     = var.integration_type == "QUEUE" ? aws_sns_topic.notification_integration_sns.arn : null
+  aws_sns_role_arn      = var.integration_type == "QUEUE" ? "arn:${var.arn_format}:iam::${local.account_id}:role/${local.notification_integration_sns_role_name}" : null
 }
 
 resource "snowflake_integration_grant" "notification_integration_grant" {

@@ -1,9 +1,4 @@
 # Required Variables
-variable "snowflake_account" {
-  type      = string
-  sensitive = true
-}
-
 variable "prefix" {
   type        = string
   description = "This will be the prefix used to name the Resources."
@@ -22,11 +17,6 @@ variable "env" {
   default     = "dev"
 }
 
-variable "snowflake_notification_integration_owner_role" {
-  type    = string
-  default = "ACCOUNTADMIN"
-}
-
 variable "snowflake_integration_user_roles" {
   type = list(string)
   default = [
@@ -41,6 +31,29 @@ variable "arn_format" {
   default     = "aws"
 }
 
+variable "integration_enabled" {
+  type        = bool
+  description = "Boolean to indicate if the integration is enabled after creation."
+  default     = true
+}
+
+variable "integration_type" {
+  type        = string
+  description = "QUEUE or EMAIL. Defaults to QUEUE"
+  default     = "QUEUE"
+}
+
+variable "allowed_recepients" {
+  type        = list(string)
+  description = "Allow list of recepient email addresses for a EMAIL type notification integration."
+  default     = []
+}
+
+variable "notification_integration_comment" {
+  type        = string
+  description = "A Snowflake object comment for your notification integration object."
+  default     = "A Notification Integration."
+}
 
 data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}

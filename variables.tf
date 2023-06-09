@@ -31,6 +31,29 @@ variable "arn_format" {
   default     = "aws"
 }
 
+variable "integration_enabled" {
+  type        = bool
+  description = "Boolean to indicate if the integration is enabled after creation."
+  default     = true
+}
+
+variable "integration_type" {
+  type        = string
+  description = "QUEUE or EMAIL. Defaults to QUEUE"
+  default     = "QUEUE"
+}
+
+variable "allowed_recepients" {
+  type        = list(string)
+  description = "Allow list of recepient email addresses for a EMAIL type notification integration."
+  default     = []
+}
+
+variable "notification_integration_comment" {
+  type        = string
+  description = "A Snowflake object comment for your notification integration object."
+  default     = "A Notification Integration."
+}
 
 data "aws_caller_identity" "current" {}
 data "aws_region" "current" {}
