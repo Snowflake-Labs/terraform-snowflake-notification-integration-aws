@@ -11,7 +11,7 @@ resource "snowflake_notification_integration" "notification_integration" {
   # QUEUE
   direction             = var.integration_type == "QUEUE" ? "OUTBOUND" : null
   notification_provider = var.integration_type == "QUEUE" ? "AWS_SNS" : null
-  aws_sns_topic_arn     = var.integration_type == "QUEUE" ? aws_sns_topic.notification_integration_sns.arn : null
+  aws_sns_topic_arn     = var.integration_type == "QUEUE" ? aws_sns_topic.notification_integration_sns[0].arn : null
   aws_sns_role_arn      = var.integration_type == "QUEUE" ? "arn:${var.arn_format}:iam::${local.account_id}:role/${local.notification_integration_sns_role_name}" : null
 }
 
